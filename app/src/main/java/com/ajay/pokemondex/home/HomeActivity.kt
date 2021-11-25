@@ -3,6 +3,7 @@ package com.ajay.pokemondex.home
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.ajay.pokemondex.R
@@ -50,7 +51,7 @@ class HomeActivity : AppCompatActivity(),HomeContractor.View {
     }
 
     override fun onError(msg: String) {
-        TODO("Not yet implemented")
+        Toast.makeText(applicationContext,"Error Occured: Please check network connectivity",Toast.LENGTH_LONG).show()
     }
 
     override fun onDestroy() {
