@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_default"
+    android:id="@+id/detailsActivityLayout"
+    tools:context=".details.DetailsActivity">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.3"/>
+
+
+    <ImageView
+        android:id="@+id/detailsImgView"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <TextView
+        android:id="@+id/detailsTextViewName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="#001 Name"
+        android:textSize="22dp"
+        android:textStyle="bold"
+        android:textColor="#000"
+        android:textAlignment="center"
+        app:layout_constraintTop_toBottomOf="@id/detailsImgView"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <TextView
+        android:id="@+id/detailsTypeHeading"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:text="Type"
+        android:textColor="#000"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/guideline"
+        app:layout_constraintTop_toBottomOf="@id/detailsTextViewName"/>
+
+    <TextView
+        android:id="@+id/detailsType"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Type"
+        android:textColor="#000"
+        android:textSize="16dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/detailsTypeHeading"
+        app:layout_constraintLeft_toRightOf="@id/guideline"/>
+
+    <TextView
+        android:id="@+id/detailsHeightHeading"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:text="Height"
+        android:textColor="#000"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/guideline"
+        app:layout_constraintTop_toBottomOf="@id/detailsTypeHeading"/>
+
+    <TextView
+        android:id="@+id/detailsHeight"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Height"
+        android:textColor="#000"
+        android:textSize="16dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/detailsHeightHeading"
+        app:layout_constraintLeft_toRightOf="@id/guideline"/>
+
+    <TextView
+        android:id="@+id/detailsWeightHeading"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:text="Weight"
+        android:textColor="#000"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/guideline"
+        app:layout_constraintTop_toBottomOf="@id/detailsHeightHeading"/>
+
+    <TextView
+        android:id="@+id/detailsWeight"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Weight"
+        android:textColor="#000"
+        android:textSize="16dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/detailsWeightHeading"
+        app:layout_constraintLeft_toRightOf="@id/guideline"/>
+
+    <TextView
+        android:id="@+id/detailsWeaknessHeading"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:text="Weakness"
+        android:textColor="#000"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/guideline"
+        app:layout_constraintTop_toBottomOf="@id/detailsWeightHeading"/>
+
+    <TextView
+        android:id="@+id/detailsWeakness"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Type"
+        android:textColor="#000"
+        android:textSize="16dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/detailsWeaknessHeading"
+        app:layout_constraintLeft_toRightOf="@id/guideline"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
