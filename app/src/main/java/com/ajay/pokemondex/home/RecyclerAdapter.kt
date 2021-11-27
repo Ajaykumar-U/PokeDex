@@ -13,13 +13,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.ajay.pokemondex.R
 import com.ajay.pokemondex.databinding.RecyclerLayoutBinding
 import com.ajay.pokemondex.details.DetailsActivity
-import com.ajay.pokemondex.home.data.Pokemon
+import com.ajay.pokemondex.home.model.Pokemon
 import com.bumptech.glide.Glide
 import com.squareup.picasso.Picasso
 import android.widget.Toast.makeText as makeText1
 
 class RecyclerAdapter(var data: List<Pokemon>,private val applicationContext: Context):
-    RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
+        RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.recycler_layout,parent,false)
@@ -29,9 +29,9 @@ class RecyclerAdapter(var data: List<Pokemon>,private val applicationContext: Co
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val pokemonData = data.get(position)
         var img = pokemonData.img
-        var imgArr = img.toCharArray()
+        var imgArr = img?.toCharArray()
         var arrStr:String=""
-        for (i in 0..imgArr.size-1){
+        for (i in 0..imgArr?.size!!-1){
             if(imgArr[i]==':'){
                 arrStr += 's'
             }

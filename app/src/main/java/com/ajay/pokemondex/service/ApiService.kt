@@ -1,6 +1,6 @@
 package com.ajay.pokemondex.service
 
-import com.ajay.pokemondex.home.data.Root
+import com.ajay.pokemondex.home.model.Root
 import retrofit2.Call
 import retrofit2.http.GET
 

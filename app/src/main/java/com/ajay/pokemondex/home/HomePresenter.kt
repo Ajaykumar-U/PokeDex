@@ -1,8 +1,8 @@
 package com.ajay.pokemondex.home
 
 import android.util.Log
-import com.ajay.pokemondex.home.data.Pokemon
-import com.ajay.pokemondex.home.data.Root
+import com.ajay.pokemondex.home.model.Pokemon
+import com.ajay.pokemondex.home.model.Root
 import com.ajay.pokemondex.service.RetrofitBuilder
 import retrofit2.Call
 import retrofit2.Callback
@@ -13,6 +13,7 @@ class HomePresenter:HomeContractor.Presenter {
 
     override fun attachView(view: HomeContractor.View) {
         this.view=view
+        Log.d("Call","Call")
     }
 
     override fun detachView() {
@@ -24,7 +25,7 @@ class HomePresenter:HomeContractor.Presenter {
         dataPokemon.enqueue(object: Callback<Root> {
             override fun onResponse(call: Call<Root>, response: Response<Root>) {
                 if(response.code() == 200){
-                    val a:List<Pokemon> = response.body()?.getPokemon() as List<Pokemon>
+                    val a:List<Pokemon> = response.body()?.pokemon as List<Pokemon>
                     view?.getPokemonList(a)
                 }
             }

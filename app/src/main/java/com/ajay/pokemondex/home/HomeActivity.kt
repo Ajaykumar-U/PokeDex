@@ -7,43 +7,19 @@ import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.ajay.pokemondex.R
-import com.ajay.pokemondex.databinding.ActivityHomeBinding
-import com.ajay.pokemondex.home.data.Pokemon
-import com.ajay.pokemondex.home.data.Root
-import com.ajay.pokemondex.service.RetrofitBuilder
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+import com.ajay.pokemondex.home.model.Pokemon
 
 class HomeActivity : AppCompatActivity(),HomeContractor.View {
-    var presenter:HomeContractor.Presenter?=null
-//    private lateinit var binding: ActivityHomeBinding
+    var presenter:HomeContractor.Presenter?= HomePresenter()
     lateinit var homeRecyView:RecyclerView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Log.d("Call","HomeCall")
         presenter?.attachView(this)
-//        binding = ActivityHomeBinding.inflate(layoutInflater)
+        presenter?.getList()
         setContentView(R.layout.activity_home)
         homeRecyView = findViewById(R.id.homeRecyclerView)
         homeRecyView.layoutManager = GridLayoutManager(this,2);
-
-        val dataPokemon = RetrofitBuilder.getService().fetchPokemonDetails()
-        dataPokemon.enqueue(object:Callback<Root>{
-            override fun onResponse(call: Call<Root>, response: Response<Root>) {
-                if(response.code() == 200){
-                    val a:List<Pokemon> = response.body()?.getPokemon() as List<Pokemon>
-                    for (i in a){
-                        Log.d("HomeActivity",i.img)
-                    }
-                    homeRecyView.adapter = RecyclerAdapter(a,applicationContext)
-                }
-            }
-
-            override fun onFailure(call: Call<Root>, t: Throwable) {
-                Log.d("HomeActivity","Out")
-            }
-
-        })
     }
 
     override fun getPokemonList(pokemonList: List<Pokemon>) {
@@ -51,7 +27,7 @@ class HomeActivity : AppCompatActivity(),HomeContractor.View {
     }
 
     override fun onError(msg: String) {
-        Toast.makeText(applicationContext,"Error Occured: Please check network connectivity",Toast.LENGTH_LONG).show()
+        Toast.makeText(applicationContext,"Error: Please check network connectivity",Toast.LENGTH_LONG).show()
     }
 
     override fun onDestroy() {
@@ -59,4 +35,3 @@ class HomeActivity : AppCompatActivity(),HomeContractor.View {
         presenter?.detachView()
     }
 }
-

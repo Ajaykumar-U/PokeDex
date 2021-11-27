@@ -1,6 +1,6 @@
 package com.ajay.pokemondex.home
 
-import com.ajay.pokemondex.home.data.Pokemon
+import com.ajay.pokemondex.home.model.Pokemon
 
 
 interface HomeContractor {
